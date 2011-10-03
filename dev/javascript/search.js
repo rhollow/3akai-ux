@@ -19,7 +19,7 @@
 require(["jquery","sakai/sakai.api.core"], function($, sakai) {
 
     sakai_global.search = function() {
-
+        var worldsOrderIncrement = 3;
         var pubdata = {
             "structure0": {
                 "all": {
@@ -71,7 +71,7 @@ require(["jquery","sakai/sakai.api.core"], function($, sakai) {
             pubdata.structure0[category.id] = {
                 "_title": title,
                 "_ref": refId,
-                "_order": (c + 3),
+                "_order": (c + worldsOrderIncrement),
                 "main": {
                     "_ref": refId,
                     "_order": 0,

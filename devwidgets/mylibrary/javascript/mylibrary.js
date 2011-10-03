@@ -149,7 +149,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                     "mylibrary","",bundleKey).replace(/\$\{firstname\}/gi,
                         sakai.api.i18n.General.getValueForKey("YOUR").toLowerCase());
             } else {
-                return sakai.api.i18n.Widgets.getValueForKey("mylibrary", "", bundleKey).replace(/\$\{firstname\}/gi, sakai_global.profile.main.data.basic.elements.firstName.value + "'s");
+                return sakai.api.i18n.Widgets.getValueForKey("mylibrary", "", bundleKey).replace(/\$\{firstname\}/gi, sakai.api.Security.safeOutput(sakai_global.profile.main.data.basic.elements.firstName.value) + "'s");
             }
         };
 
@@ -274,7 +274,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                 $.each(sakai.api.Util.formatTagsExcludeLocation(tags), function (i, name) {
                     formatted_tags.push({
                         name: name,
-                        link: "/search#q=" + name
+                        link: "search#q=" + sakai.api.Util.safeURL(name)
                     });
                 });
                 return formatted_tags;
@@ -352,22 +352,22 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                                 return;
                             }
                             $.each(data.results, function(i, result){
-                                var mimetypeObj = sakai.api.Content.getMimeTypeData(result["_mimeType"] || result["sakai:custom-mimetype"]);
+                                var mimetypeObj = sakai.api.Content.getMimeTypeData(result["_mimeType"]);
                                 items.push({
                                     id: result["_path"],
                                     filename: result["sakai:pooled-content-file-name"],
-                                    link: "/content#p=" + result["_path"],
+                                    link: "/content#p=" + sakai.api.Util.safeURL(result["_path"]),
                                     last_updated: $.timeago(new Date(result["_lastModified"])),
                                     type: sakai.api.i18n.General.getValueForKey(mimetypeObj.description),
                                     type_src: mimetypeObj.URL,
                                     ownerid: result["sakai:pool-content-created-for"],
-                                    ownername: sakai.data.me.user.userid === result["sakai:pool-content-created-for"] ? sakai.api.i18n.General.getValueForKey("YOU") : sakai.api.User.getDisplayName(users[result["sakai:pool-content-created-for"]]), // using id for now - need to get firstName lastName
+                                    ownername: sakai.data.me.user.userid === result["sakai:pool-content-created-for"] ? sakai.api.i18n.General.getValueForKey("YOU") : sakai.api.User.getDisplayName(users[result["sakai:pool-content-created-for"]]),
                                     tags: formatTags(result["sakai:tags"]),
                                     numPeopleUsing: getNumPeopleUsing(),
                                     numGroupsUsing: getNumGroupsUsing(),
                                     numPlaces: sakai.api.Content.getPlaceCount(result),
                                     numComments: sakai.api.Content.getCommentCount(result),
-                                    mimeType: result["_mimeType"] || result["sakai:custom-mimetype"],
+                                    mimeType: result["_mimeType"],
                                     thumbnail: sakai.api.Content.getThumbnail(result),
                                     description: sakai.api.Util.applyThreeDots(result["sakai:description"], 1300, {
                                         max_rows: 1,
@@ -382,11 +382,13 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                             }
                         } else {
                             debug.error("Fetching library items for userid: " + mylibrary.contextId + " failed");
-                            if (callback && typeof(callback) === "function") {
+                            if ($.isFunction(callback)) {
                                 callback(false, null, query);
                             }
                         }
                     });
+                } else if ($.isFunction(callback)) {
+                    callback(false, null, query);
                 }
             };
 
@@ -503,7 +505,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                 $mylibrary_groupfilter_selection.find("button").text(groupTitle);
 
                 mylibrary.currentPagenum = 1;
-                getLibraryItems(groupId, renderLibraryItems);
+                getLibraryItems(renderLibraryItems, groupId);
                 sakai.api.Util.TemplateRenderer("mylibrary_title_template", {
                     isMe: mylibrary.isOwnerViewing,
                     firstName: groupTitle

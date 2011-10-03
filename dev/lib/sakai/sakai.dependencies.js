@@ -1,3 +1,20 @@
+/*
+ * Licensed to the Sakai Foundation (SF) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The SF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
 
 /* Define globals */
 sakai_global = {};
@@ -95,7 +112,7 @@ require(
         "jquery-ui",
         "jquery-plugins/jquery.validate",
         "jquery-plugins/jquery.autoSuggest.sakai-edited",
-        "misc/l10n/globalization",
+        "misc/l10n/globalize",
         "misc/underscore",
         "jquery-plugins/jquery.json",
         "misc/google/html-sanitizer",
@@ -105,13 +122,14 @@ require(
         "jquery-plugins/jqmodal.sakai-edited",
         "jquery-plugins/jquery.cookie",
         "jquery-plugins/jquery.ba-bbq",
+        "jquery-plugins/jquery.fieldselection",
         "jquery-plugins/jquery.pager",
         "jquery-plugins/jquery.threedots",
         "jquery-plugins/jquery.form",
         "jquery-plugins/jquery.MultiFile",
         "jquery-plugins/jquery.hoverIntent.sakai-edit",
         "jquery-plugins/jsTree/jquery.jstree.sakai-edit",
-        "jquery-plugins/gritter/jquery.gritter",
+        "jquery-plugins/gritter/jquery.gritter.sakai-edit",
         "jquery-plugins/jquery.jcarousel.sakai-edit"
     ],
     function($, sakai) {

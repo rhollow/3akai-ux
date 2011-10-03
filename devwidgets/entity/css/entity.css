@@ -1,4 +1,4 @@
-/*
+/**
  * Licensed to the Sakai Foundation (SF) under one
  * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
@@ -31,9 +31,10 @@
 /* User */
 #entity_container #entity_user_image, #entity_container #entity_group_image {cursor:pointer;}
 #entity_container #entity_group_image {margin-top:-4px;}
-#entity_container .s3d-dropdown-list {margin-left:18px;position:absolute;width:120px;}
+#entity_container #entity_user_image .s3d-dropdown-list {margin-left:18px;}
+#entity_container .s3d-dropdown-list {position:absolute;width:120px;}
 #entity_container .s3d-dropdown-list .s3d-dropdown-list-arrow-up {margin-left:62px;right:auto;}
-#entity_container .entity_profile_picture_down_arrow{color:#FFFFFF;cursor:pointer;float:left;height:16px;margin-left:12px;margin-top:34px;padding-top:2px;text-align:center;text-shadow:0 0 1px #999999;width:20px;}
+#entity_container .entity_profile_picture_down_arrow{color:#ecedeb;cursor:pointer;float:left;height:16px;margin-left:12px;margin-top:34px;padding-top:2px;text-align:center;text-shadow:0 0 1px #999999;width:20px;}
 #entity_container .entity_profile_picture_down_arrow.clicked, #entity_container .entity_profile_picture_down_arrow:hover {background:url("/devwidgets/lhnavigation/images/lhnav_selected_item_bg.png") repeat-x scroll left -10px transparent;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;}
 #entity_container #entity_group_image .entity_profile_picture_down_arrow {margin-right:10px;}
 
@@ -50,7 +51,7 @@
 #entity_container .entity_add_to_contacts_requested_icon {background:url("/dev/images/opposite_arrows_requested_icon.png") no-repeat scroll left center transparent;}
 
 /* Me */
-#entity_container .entity_name_me {clear:both; font-size: 14px; padding: 5px 5px 0px 20px; color: #666;}
+#entity_container .entity_name_me {clear:both; font-size: 14px; padding: 5px 5px 0px 20px; color: #666;word-wrap:break-word;}
 #entity_container .entity_my_profilepic {width:70px; height: 54px; background-color:#fff; margin-left: 20px; padding: 2px 2px 2px 1px;}
 
 /* Group */

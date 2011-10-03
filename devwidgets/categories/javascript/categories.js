@@ -130,24 +130,32 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai){
          */   
         var parseDirectory = function(success, data){
             $.each(directory, function(i, toplevel){
-                toplevel.count = 0;
-                if (data[i] && data[i].content){
-                    toplevel.content = data[i].content;
-                    toplevel.content.usedin = sakai.api.Content.getPlaceCount(toplevel.content);
-                    toplevel.content.commentcount = sakai.api.Content.getCommentCount(toplevel.content);
-                    var mimeType = sakai.api.Content.getMimeType(toplevel.content);
-                    if (mimeType.indexOf("image/") !== -1){
-                        toplevel.content.image = true;
+                if (toplevel.divider){
+                    var toFillOut = 4 - (categoriesToRender.length % 4);
+                    if (toFillOut !== 4) {
+                        categoriesToRender.push({"spacer": true});
                     }
-                    if (sakai.api.Content.getThumbnail(toplevel.content)){
-                        toplevel.content.haspreview = true;
+                } else {
+                    toplevel.count = 0;
+                    if (data[i] && data[i].content && !$.isEmptyObject(data[i].content)){
+                        toplevel.content = data[i].content;
+                        toplevel.content.usedin = sakai.api.Content.getPlaceCount(toplevel.content);
+                        toplevel.content.commentcount = sakai.api.Content.getCommentCount(toplevel.content);
+                        toplevel.count = data[i]["sakai:tag-count"];
+                        var mimeType = sakai.api.Content.getMimeType(data[i].content);
+                        toplevel.mimeTypeDescription = sakai.api.i18n.General.getValueForKey(sakai.config.MimeTypes["other"].description);
+                        if (sakai.config.MimeTypes[mimeType]){
+                            toplevel.mimeTypeDescription = sakai.api.i18n.General.getValueForKey(sakai.config.MimeTypes[mimeType].description);
+                        }
                     }
-                    toplevel.count = data[i]["sakai:tag-count"];
+                    toplevel.id = i;
+                    categoriesToRender.push(toplevel);
                 }
-                toplevel.id = i;
-                categoriesToRender.push(toplevel);
-                
             });
+            var toFillOutExtra = 4 - (categoriesToRender.length % 4);
+            for (var i = 0; i < toFillOutExtra; i++){
+                categoriesToRender.push({"spacer": true});
+            }
             renderCategories();
         };
         

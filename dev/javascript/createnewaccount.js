@@ -69,11 +69,11 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai){
         // Contains executable errors
         var errObj = [];
 
-        var currentUserName = "";
         ///////////////////////
         // Utility functions //
         ///////////////////////
 
+        var usernameEntered = "";
 
         /**
          * Get all of the values out of the form fields. This will return
@@ -83,13 +83,6 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai){
         var getFormValues = function(){
             // Get the values from the form.
             var values = $(formContainer).serializeObject();
-
-            var nonEscaped = ["password", "username", "password_repeat", "recaptcha_response_field"];
-            for (var i in values) {
-                if (values.hasOwnProperty(i) && $.inArray(i, nonEscaped) === -1) {
-                    values[i] = escape(values[i]);
-                }
-            }
 
             // Get the values from the captcha form.
             var captchaValues = sakai_global.captcha.getProperties();
@@ -221,19 +214,24 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai){
             });
 
             $("#username").bind("keyup blur", function(){
-                if ($.trim($(usernameField).val()) !== "" && $(usernameField).val().length > 2 && currentUserName !== $.trim($(usernameField).val())) {
-                    $(usernameField).removeClass("signup_form_error");
-                    currentUserName = $.trim($(usernameField).val());
-                    checkUserName(true, function(success){
-                        $("#create_account_username_error").hide();
-                        if (success) {
-                            $(usernameField).removeClass("signup_form_error");
-                            $(usernameField).addClass("username_available_icon");
-                            $("."+ $(usernameField)[0].id).removeClass("signup_form_error_label");
-                        } else {
-                            $(usernameField).removeClass("username_available_icon");
-                        }
-                    });
+                var username = $.trim($(usernameField).val());
+                if (usernameEntered != username) {
+                    usernameEntered = username;
+                    if (username && username.length > 2) {
+                        $(usernameField).removeClass("signup_form_error");
+                        checkUserName(true, function(success){
+                            $("#create_account_username_error").hide();
+                            if (success) {
+                                $(usernameField).removeClass("signup_form_error");
+                                $(usernameField).addClass("username_available_icon");
+                                $("." + $(usernameField)[0].id).removeClass("signup_form_error_label");
+                            } else {
+                                $(usernameField).removeClass("username_available_icon");
+                            }
+                        });
+                    } else {
+                        $(usernameField).removeClass("username_available_icon");
+                    }
                 }
             });
 

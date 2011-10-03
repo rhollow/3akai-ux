@@ -1,4 +1,4 @@
-/*
+/**
  * Licensed to the Sakai Foundation (SF) under one
  * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
@@ -15,7 +15,6 @@
  * KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
-
 /* General */
 .categories_widget {background:url("/devwidgets/categories/images/categories_bg.png") repeat-x top left transparent;width:930px;padding:0 20px 5px;visibility:hidden;}
 .categories_widget .categories_item {background:url("/devwidgets/categories/images/categories_item_bg.png") repeat-x top left transparent;width:176px;height:156px;float:left;margin:19px 3px 0 0;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;padding:12px;}
@@ -34,7 +33,7 @@
 .categories_widget #categories_expand_contract span.s3d-bold {float:left;}
 
 /* Content Style */
-.categories_widget .categories_item a.s3d-regular-links {color:#38b6ee;font-size:12px;}
+.categories_widget .categories_item a.s3d-regular-links {color:#38b6ee;font-size:12px;display:block;overflow:hidden;word-wrap:break-word;}
 .categories_widget .categories_item a.categories_item_header_link{font-size: 17px;}
 .categories_widget .categories_item .categories_item_header_meta_small{color:#ccc;font-size:10px;display:block;}
 .categories_widget .categories_item .categories_item_header_meta {color:#ccc;font-size:12px;display:block;}
@@ -49,7 +48,7 @@
 .categories_widget .categories_content_icon {display:inline-block;height:10px;width:15px;margin-right:5px;}
 .categories_widget .categories_content_category_description {font-size:11px;color:#CCCCCC;display:block; margin-top: 5px;}
 .categories_widget .categories_content_comments_icon {background:url("/devwidgets/recentactivity/images/recentactivity_comment_icon.png") no-repeat scroll left top transparent;}
-.categories_widget .categories_content_tags {font-size:11px !important;display:block;margin-top:5px;color:#2683BC;padding-left:20px;background:url("/dev/images/tag_icon.png") no-repeat scroll left center transparent; clear: both;}
+.categories_widget .categories_content_tags {font-size:11px !important;display:block;margin-top:5px;color:#2683BC;padding-left:20px;padding-top:5px;background:url("/dev/images/tag_icon.png") no-repeat scroll left bottom transparent; clear: both;}
 .categories_widget .categories_content_tags a {font-size:11px !important;font-weight:normal !important;}
 .categories_widget .categories_spacer {visibility: hidden;}
 

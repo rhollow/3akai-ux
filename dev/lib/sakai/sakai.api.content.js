@@ -1,5 +1,4 @@
-/**
- *
+/*
  * Licensed to the Sakai Foundation (SF) under one
  * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
@@ -15,9 +14,7 @@
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
  * KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
  */
-
 define(
     [
         "jquery",
@@ -179,6 +176,176 @@ define(
                 error: function(xhr, textStatus, thrownError){
                     if (callback) {
                         callback(false);
+                    }
+                }
+            });
+        },
+
+        /**
+         * Sets ACLs on a specified path and executes a callback if specified.
+         * @param {String} _path The path on which the ACLs need to be set or an array of paths on which to set ACLs
+         * @param {String} _permission 'anonymous', 'everyone', 'contacts' or 'private' determining what ACLs need to be set
+         *                 This should be an array of equal length of _path is an array
+         * @param {String} me Userid of the currently logged in user
+         * @param {Function} callback Function to execute when permissions have been set or failed to be set
+         */
+        setACLsOnPath: function(_path, _permission, me, callback){
+            var paths = []; var permissions = []; var ACLs = [];
+            if (typeof _path === "string"){
+                paths.push(_path);
+                permissions.push(_permission);
+            } else {
+                paths = _path;
+                permissions = _permission;
+            }
+            for (var i = 0; i < paths.length; i++){
+                var path = paths[i] + ".modifyAce.html";
+                var permission = permissions[i];
+                switch (permission) {
+                    case "anonymous":
+                        ACLs.push({
+                            "url": path,
+                            "method": "POST",
+                            "parameters": {
+                                "principalId": "everyone",
+                                "privilege@jcr:read": "granted"
+                            }
+                        });
+                        ACLs.push({
+                            "url": path,
+                            "method": "POST",
+                            "parameters": {
+                                "principalId": "anonymous",
+                                "privilege@jcr:read": "granted"
+                            }
+                        });
+                        ACLs.push({
+                            "url": path,
+                            "method": "POST",
+                            "parameters": {
+                                "principalId": "g-contacts-" + me,
+                                "privilege@jcr:read": "granted"
+                            }
+                        });
+                        break;
+                    case "everyone":
+                        ACLs.push({
+                            "url": path,
+                            "method": "POST",
+                            "parameters": {
+                                "principalId": "g-contacts-" + me,
+                                "privilege@jcr:read": "granted"
+                            }
+                        });
+                        ACLs.push({
+                            "url": path,
+                            "method": "POST",
+                            "parameters": {
+                                "principalId": "everyone",
+                                "privilege@jcr:read": "granted"
+                            }
+                        });
+                        ACLs.push({
+                            "url": path,
+                            "method": "POST",
+                            "parameters": {
+                                "principalId": "anonymous",
+                                "privilege@jcr:read": "denied"
+                            }
+                        });
+                        break;
+                    case "contacts":
+                        ACLs.push({
+                            "url": path,
+                            "method": "POST",
+                            "parameters": {
+                                "principalId": me,
+                                "privilege@jcr:write": "granted",
+                                "privilege@jcr:read": "granted"
+                            }
+                        });
+                        ACLs.push({
+                            "url": path,
+                            "method": "POST",
+                            "parameters": {
+                                "principalId": "g-contacts-" + me,
+                                "privilege@jcr:read": "granted"
+                            }
+                        });
+                        ACLs.push({
+                            "url": path,
+                            "method": "POST",
+                            "parameters": {
+                                "principalId": "everyone",
+                                "privilege@jcr:read": "denied"
+                            }
+                        });
+                        ACLs.push({
+                            "url": path,
+                            "method": "POST",
+                            "parameters": {
+                                "principalId": "anonymous",
+                                "privilege@jcr:read": "denied"
+                            }
+                        });
+                        break;
+                    case "private":
+                        ACLs.push({
+                            "url": path,
+                            "method": "POST",
+                            "parameters": {
+                                "principalId": me,
+                                "privilege@jcr:write": "granted",
+                                "privilege@jcr:read": "granted"
+                            }
+                        });
+                        ACLs.push({
+                            "url": path,
+                            "method": "POST",
+                            "parameters": {
+                                "principalId": "g-contacts-" + me,
+                                "privilege@jcr:read": "denied"
+                            }
+                        });
+                        ACLs.push({
+                            "url": path,
+                            "method": "POST",
+                            "parameters": {
+                                "principalId": "everyone",
+                                "privilege@jcr:read": "denied"
+                            }
+                        });
+                        ACLs.push({
+                            "url": path,
+                            "method": "POST",
+                            "parameters": {
+                                "principalId": "anonymous",
+                                "privilege@jcr:read": "denied"
+                            }
+                        });
+                        break;
+                }
+                
+            }
+            
+
+            $.ajax({
+                url: sakai_conf.URL.BATCH,
+                traditional: true,
+                type: "POST",
+                cache: false,
+                data: {
+                    requests: $.toJSON(ACLs)
+                },
+                success: function(data){
+                    if ($.isFunction(callback)) {
+                       callback(true, data);
+                    }
+                },
+                error: function(xhr, textStatus, thrownError){
+                    debug.error(xhr, textStatus, thrownError);
+                    if ($.isFunction(callback)) {
+                       callback(false, xhr);
                     }
                 }
             });
@@ -429,15 +596,13 @@ define(
             var mimeType = "other";
             if (content['_mimeType']){
                 mimeType = content['_mimeType'];
-            } else if (content['sakai:custom-mimetype']){
-                mimeType = content['sakai:custom-mimetype'];
             }
             return mimeType;
         },
 
         getThumbnail : function(content){
             var thumbnail = "";
-            if (content['sakai:pagecount']) {
+            if (content['sakai:pagecount'] && content['sakai:pagecount'] !== "0") {
                 thumbnail = "/p/" + content['_path'] + "/page1.small.jpg";
             } else if (sakai_content.getMimeType(content).indexOf("image") !== -1) {
                 thumbnail = "/p/" + content['_path'];
@@ -451,11 +616,19 @@ define(
 
         isJwPlayerSupportedVideo : function(mimeType) {
             supported = false;
-            if (mimeType && mimeType.substring(0, 6) === "video/" ){
+            if (mimeType && mimeType.substring(0, 6) === "video/"){
                 var mimeSuffix = mimeType.substring(6);
                 if (mimeSuffix === "x-flv" || mimeSuffix === "mp4" || mimeSuffix === "3gpp" || mimeSuffix === "quicktime") {
                     supported = true;
                 }
+            }
+            return supported;
+        },
+
+        isJwPlayerSupportedAudio : function(mimeType) {
+            supported = false;
+            if (mimeType && mimeType.substring(0, 6) === "audio/"){
+                supported = true;
             }
             return supported;
         },
@@ -484,7 +657,9 @@ define(
                     sakai_content.getThumbnail(content) ||
                     mimeType.substring(0,6) === "image/" ||
                     mimeType.substring(0,5) === "text/" ||
-                    sakai_content.isJwPlayerSupportedVideo(mimeType)) {
+                    mimeType === "application/x-shockwave-flash" ||
+                    sakai_content.isJwPlayerSupportedVideo(mimeType)  ||
+                    sakai_content.isJwPlayerSupportedAudio(mimeType)) {
                 result = true;
             }
             return result;

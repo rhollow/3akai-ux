@@ -1,4 +1,4 @@
-/*
+/**
  * Licensed to the Sakai Foundation (SF) under one
  * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
@@ -15,7 +15,6 @@
  * KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
-
 /* Widget Container CSS */
 #lhnavigation_container #lhnavigation_actions {padding:12px;text-align:center;}
 #lhnavigation_container #lhnavigation_actions .s3d-button-inner{font-size:9px;}
@@ -23,7 +22,7 @@
 #lhnavigation_container ul{margin:6px 0 0;}
 #lhnavigation_container ul li{display:block; list-style:none;}
 #lhnavigation_container ul li .lhnavigation_item_content, #lhnavigation_container ul li ul li div.lhnavigation_subnav_item_content{padding:3px 12px 2px 28px;}
-#lhnavigation_container ul li .lhnavigation_toplevel {color:#707e8c; text-decoration: none;padding:5px 0 7px;display:block;}
+#lhnavigation_container ul li .lhnavigation_toplevel {color:#707e8c; text-decoration: none;padding:5px 0 7px;display:block;word-wrap:break-word;}
 #lhnavigation_container ul li .lhnavigation_selected_submenu {margin-left:136px;margin-top:-21px;position:absolute;cursor:pointer;cursor:hand;}
 #lhnavigation_container ul li .lhnavigation_selected_subsubmenu {margin-left: 124px;}
 #lhnavigation_container ul li .lhnavigation_private {background:url("/devwidgets/lhnavigation/images/lhnav_padlock.png") no-repeat center left transparent;height:16px;margin-left:136px;margin-top:-22px;position:absolute;width:11px;}
@@ -32,7 +31,7 @@
 #lhnavigation_container .lhnavigation_change_title {margin: 4px 0 5px;padding: 2px 10px 2px 0;width: 115px;}
 #lhnavigation_container .lhnavigation_change_title_restricted_width {width: 100px !important;}
 
-.lhnavigation_selected_submenu_image {width:16px;height:16px;color:#fff;padding-left:3px;padding-top:1px;text-shadow:0 0 1px #999999;}
+.lhnavigation_selected_submenu_image {width:16px;height:16px;color:#ecedeb;padding-left:3px;padding-top:1px;text-shadow:0 0 1px #999999;}
 .lhnavigation_selected_submenu_image.clicked, .lhnavigation_selected_submenu_image:hover {background:url("/devwidgets/lhnavigation/images/lhnav_selected_item_bg.png") repeat-x scroll left -10px transparent;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;}
 
 #lhnavigation_container ul li.lhnavigation_selected_item.lhnavigation_outer, #lhnavigation_container ul li ul li.lhnavigation_selected_item div.lhnavigation_subnav_item_content{background:url("/devwidgets/lhnavigation/images/lhnav_selected_item_bg.png") repeat-x left top transparent;color:#fff;}
@@ -40,7 +39,7 @@
 #lhnavigation_container ul li .lhnavigation_selected_item_arrow{background: url("/devwidgets/lhnavigation/images/lhnav_selected_item_arrow.png") no-repeat scroll left top transparent;height: 34px;margin-left: 145px;margin-top:-23px;position: absolute;width: 20px;}
 #lhnavigation_container ul li .lhnavigation_selected_item_arrow_sub{margin-left:133px;}
 #lhnavigation_container ul li.lhnavigation_selected_item a {color:#fff; text-decoration:none;font-weight:bold;}
-#lhnavigation_container ul li a{display:block;padding:5px 0 7px;}
+#lhnavigation_container ul li a{display:block;padding:5px 0 7px;word-wrap:break-word;}
 #lhnavigation_container ul li.lhnavigation_hassubnav{cursor:pointer;}
 
 #lhnavigation_container ul .lhnavigation_hoverable_item:hover{color:#1e5b85;cursor:pointer;}

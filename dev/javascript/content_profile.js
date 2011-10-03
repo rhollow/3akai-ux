@@ -87,7 +87,7 @@ require(["jquery","sakai/sakai.api.core", "/dev/javascript/myb/myb.securepage.js
                                 return;
                             } else {
                                 contentInfo = $.parseJSON(data.results[0].body);
-                                if (contentInfo["sakai:custom-mimetype"] && contentInfo["sakai:custom-mimetype"] === "x-sakai/document"){
+                                if (contentInfo["_mimeType"] && contentInfo["_mimeType"] === "x-sakai/document"){
                                     showPreview = false;
                                 } else {
                                     switchToOneColumnLayout(false);
@@ -149,7 +149,7 @@ require(["jquery","sakai/sakai.api.core", "/dev/javascript/myb/myb.securepage.js
                         }
                         
                         if (data.results.hasOwnProperty(3)) {
-                            contentActivity = $.parseJSON(data.results[3].body);;
+                            contentActivity = $.parseJSON(data.results[3].body);
                         }
 
                         var manager = false;
@@ -196,7 +196,7 @@ require(["jquery","sakai/sakai.api.core", "/dev/javascript/myb/myb.securepage.js
                             directory = sakai.api.Util.getDirectoryTags(contentInfo["sakai:tags"].toString());
                         }
 
-                        var fullPath = content_path + "/" + encodeURIComponent(contentInfo["sakai:pooled-content-file-name"]);
+                        var fullPath = content_path + "/" + sakai.api.Util.safeURL(contentInfo["sakai:pooled-content-file-name"]);
 
                         // filter out the the everyone group and the anonymous user
                         contentMembers.viewers = $.grep(contentMembers.viewers, function(resultObject, index){

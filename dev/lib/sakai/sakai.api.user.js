@@ -1,5 +1,4 @@
-/**
- *
+/*
  * Licensed to the Sakai Foundation (SF) under one
  * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
@@ -15,9 +14,7 @@
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
  * KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
- *
  */
-
 
 /**
  * @class User
@@ -160,7 +157,7 @@ define(
         },
 
         getUser: function(userid, callback){
-            var authprofileURL = "/~" + userid + "/public/authprofile.profile.json";
+            var authprofileURL = "/~" + sakai_util.safeURL(userid) + "/public/authprofile.profile.json";
             sakai_serv.loadJSON(authprofileURL, function(success, data) {
                 if (success && data) {
                     callback(true, data);
@@ -177,6 +174,17 @@ define(
         getMultipleUsers: function(userArray, callback){
             var uniqueUserArray = [];
 
+            // callback function for response from batch request
+            var bundleReqFunction = function(success, reqData){
+                var users = {};
+                for (var j in reqData.responseId) {
+                    if (reqData.responseId.hasOwnProperty(j) && reqData.responseData[j]) {
+                        users[reqData.responseId[j]] = $.parseJSON(reqData.responseData[j].body);
+                    }
+                }
+                callback(users);
+            };
+
             for (var i in userArray) {
                 if (userArray.hasOwnProperty(i) && $.inArray(userArray[i], uniqueUserArray) == -1) {
                     uniqueUserArray.push(userArray[i]);
@@ -187,22 +195,9 @@ define(
                     sakai_serv.bundleRequests("sakai.api.User.getMultipleUsers", uniqueUserArray.length, uniqueUserArray[ii], {
                         "url": "/~" + uniqueUserArray[ii] + "/public/authprofile.profile.json",
                         "method": "GET"
-                    });
+                    }, bundleReqFunction);
                 }
             }
-
-            // bind response from batch request
-            $(window).bind("complete.bundleRequest.Server.api.sakai", function(e, reqData) {
-                if (reqData.groupId === "sakai.api.User.getMultipleUsers") {
-                    var users = {};
-                    for (var j in reqData.responseId) {
-                        if (reqData.responseId.hasOwnProperty(j) && reqData.responseData[j]) {
-                            users[reqData.responseId[j]] = $.parseJSON(reqData.responseData[j].body);
-                        }
-                    }
-                    callback(users);
-                }
-            });
         },
 
         /**
@@ -319,7 +314,7 @@ define(
                 profile.basic.elements[eltName].value !== undefined) {
                     ret = profile.basic.elements[eltName].value;
                 }
-            return unescape(sakai_util.Security.saneHTML($.trim(ret)));
+            return $.trim(ret);
         },
 
         /**
@@ -428,7 +423,7 @@ define(
                 nameToReturn += profile.basic.elements[configFirstName].value;
             }
 
-            return unescape(sakai_util.Security.saneHTML($.trim(nameToReturn)));
+            return sakai_util.Security.saneHTML($.trim(nameToReturn));
         },
 
         /**
@@ -449,7 +444,8 @@ define(
                     profile.basic &&
                     profile.basic.elements &&
                     profile.basic.elements[key] !== undefined &&
-                    profile.basic.elements[key].value !== undefined) {
+                    profile.basic.elements[key].value !== undefined &&
+                    $.trim(profile.basic.elements[key].value) !== "") {
                    nameToReturn += profile.basic.elements[key].value + " ";
                    done = true;
                }
@@ -464,7 +460,16 @@ define(
                 idx++;
             }
 
-            return unescape(sakai_util.Security.saneHTML($.trim(nameToReturn)));
+            if(!done){
+                if(profile && profile["rep:userId"]){
+                    return profile["rep:userId"];
+                } else {
+                    return "";
+                }
+            } else {
+                return sakai_util.Security.safeOutput($.trim(nameToReturn));
+            }
+            return false;
         },
 
         /**
@@ -578,17 +583,19 @@ define(
 
         acceptContactInvite : function(inviteFrom, callback) {
             $.ajax({
-                url: "/~" + sakaiUserAPI.data.me.user.userid + "/contacts.accept.html",
+                url: "/~" + sakai_util.safeURL(sakaiUserAPI.data.me.user.userid) + "/contacts.accept.html",
                 type: "POST",
                 data: {
                     "targetUserId": inviteFrom
                 },
                 success: function(data) {
-                    $.each(sakaiUserAPI.data.me.mycontacts, function(i, contact) {
-                        if (contact.target === inviteFrom) {
-                            contact.details["sakai:state"] = "ACCEPTED";
-                        }
-                    });
+                    if (sakaiUserAPI.data.me.mycontacts) {
+                        $.each(sakaiUserAPI.data.me.mycontacts, function(i, contact){
+                            if (contact.target === inviteFrom) {
+                                contact.details["sakai:state"] = "ACCEPTED";
+                            }
+                        });
+                    }
                     if ($.isFunction(callback)) {
                         callback(true, data);
                     }
@@ -607,19 +614,21 @@ define(
 
         ignoreContactInvite : function(inviteFrom, callback) {
             $.ajax({
-                url: "/~" + sakaiUserAPI.data.me.user.userid + "/contacts.ignore.html",
+                url: "/~" + sakai_util.safeURL(sakaiUserAPI.data.me.user.userid) + "/contacts.ignore.html",
                 type: "POST",
                 data: {
                     "targetUserId": inviteFrom
                 },
                 success: function(data){
-                    $.each(sakaiUserAPI.data.me.mycontacts, function(i, contact) {
-                        if (contact.target === inviteFrom) {
-                            contact.details["sakai:state"] = "IGNORED";
-                        }
-                    });
+                    if (sakaiUserAPI.data.me.mycontacts) {
+                        $.each(sakaiUserAPI.data.me.mycontacts, function(i, contact) {
+                            if (contact.target === inviteFrom) {
+                                contact.details["sakai:state"] = "IGNORED";
+                            }
+                        });
+                    }
                     $.ajax({
-                        url: "/~" + sakaiUserAPI.data.me.user.userid + "/contacts.remove.html",
+                        url: "/~" + sakai_util.safeURL(sakaiUserAPI.data.me.user.userid) + "/contacts.remove.html",
                         type: "POST",
                         data: {
                             "targetUserId": inviteFrom
@@ -663,7 +672,7 @@ define(
         parseDirectory : function(profile){
             var obj = {"elements":[]};
             if (profile.main.data["sakai:tags"] && profile.main.data["sakai:tags"].length > 0) {
-                profile.main.data["sakai:tags"].sort(sakai_util.orderTagsAlphabetically);
+                profile.main.data["sakai:tags"].sort(sakai_util.Sorting.naturalSort);
                 for (var i in profile.main.data["sakai:tags"]) {
                     if (profile.main.data["sakai:tags"].hasOwnProperty(i)) {
                         var tag = profile.main.data["sakai:tags"][i] + "";
@@ -742,7 +751,7 @@ define(
             }
 
             if (progressData !== ""){
-                var authprofileURL = "/~" + me.user.userid + "/public/authprofile/userprogress";
+                var authprofileURL = "/~" + sakai_util.safeURL(me.user.userid) + "/public/authprofile/userprogress";
                 sakai_serv.saveJSON(authprofileURL, progressData, function(success, data){
                     // Check whether save was successful
                     if (success && refresh) {
@@ -755,7 +764,7 @@ define(
 
         getUpdatedCounts : function(medata, callback) {
             $.ajax({
-                url: medata.profile.homePath + "/public/authprofile.json",
+                url: medata.profile.homePath + "/public/authprofile.profile.json",
                 success: function(profile){
                     medata.profile.counts = profile.counts;
                     if ($.isFunction(callback)){

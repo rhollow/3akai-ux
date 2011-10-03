@@ -1,4 +1,4 @@
-/*
+/**
  * Licensed to the Sakai Foundation (SF) under one
  * or more contributor license agreements. See the NOTICE file
  * distributed with this work for additional information
@@ -15,7 +15,6 @@
  * KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  */
-
 /*
  * The below CSS sections may not be necesary for your widget, but best practice
  * is to organize your CSS into sections like these (or add new sections)
@@ -30,7 +29,7 @@ strong{color:#000;}
 
 /* SEARCH RESULTS TITLE */
 .searchcontent_result_title{text-align:center;font-size:1.1em;color:#6d6d6d;padding:0;}
-.searchcontent_result_title{text-align:left;font-weight:normal;font-size:1em;color:#828e9c;margin:20px 10px 0 10px;padding-bottom:10px;}
+.searchcontent_result_title{text-align:left;font-weight:normal;font-size:1em;color:#828e9c;margin:20px 10px 0 10px;padding-bottom:10px;width:712px;}
 .searchcontent_selects{float:right;}
 .search_sortby{margin-left:10px;}
 .searchcontent_selects div{display:inline !important;}
@@ -41,7 +40,7 @@ strong{color:#000;}
 .searchcontent_results_part_header{border-bottom:1px solid #ddd;font-size:1.3em;padding-bottom:5px;font-weight:bold;color:#333;}
 .searchcontent_results_part_title{font-weight:bold;color:#333;float:left;}
 .display_more_link{color:#39c;font-size:.85em;font-weight:normal;position:relative;bottom:0;margin:0;padding:0;}
-.searchcontent_result{color:#333;padding:10px;border-top: 1px dotted #cccccc;overflow:hidden;}
+.searchcontent_result{color:#333;padding:10px;border-top: 1px dotted #cccccc;overflow:hidden;list-style:none}
 .searchcontent_result_first{border-top: 1px solid #e9e9e9;}
 .searchcontent_result img{float:left;padding:0 10px 10px 0;width:50px;}
 .searchcontent_result_sites img{width:30px;}
