@@ -107,7 +107,7 @@ require(["jquery","sakai/sakai.api.core", "myb/myb.api.core"], function($, sakai
          */
         function makeParticipant() {
             $.ajax({
-                url: "/system/myberkeley/personProvision",
+                url: "/system/myberkeley/selfProvision",
                 type: "POST",
                 data: {},
                 success: function(data){
@@ -159,17 +159,14 @@ require(["jquery","sakai/sakai.api.core", "myb/myb.api.core"], function($, sakai
         
         var checkRegistrationState = function(success, data) {
             if (success) {
-                var usersArray = data.results;
-                if (usersArray.length === 1) {
-                    personAttributes = usersArray[0];
-                    renderDialog();
-                }
+                personAttributes = data;
+                renderDialog();
             }
         }
         
         var getRegistrationState = function() {
             if (!isLoggedIn()) {
-                sakai.api.Server.loadJSON("/system/myberkeley/personProvision.json", checkRegistrationState, {});
+                sakai.api.Server.loadJSON("/system/myberkeley/selfProvision.json", checkRegistrationState, {});
             }
         }
 
