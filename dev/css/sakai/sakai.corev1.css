@@ -144,3 +144,10 @@ a {
     clear: both;
     padding-bottom: 40px;
 }
+
+
+/* Begin CalCentral customization */
+.s3d-navigation-container {
+    background: #194270;
+}
+/* End CalCentral customization */
