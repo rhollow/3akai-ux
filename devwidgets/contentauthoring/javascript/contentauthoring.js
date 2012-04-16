@@ -1418,7 +1418,7 @@ require(['jquery', 'underscore', 'sakai/sakai.api.core', 'jquery-ui'], function(
         /**
          * Initialize the autosave dialog
          */
-        $('#autosave_dialog').jqm({
+        sakai.api.Util.Modal.setup('#autosave_dialog', {
             modal: true,
             overlay: 20,
             toTop: true
@@ -1468,8 +1468,7 @@ require(['jquery', 'underscore', 'sakai/sakai.api.core', 'jquery-ui'], function(
          * @param {Object} autoSaveData     Object containing the autosaved page
          */
         var showRestoreAutoSaveDialog = function(pageData, autoSaveData) {
-            sakai.api.Util.bindDialogFocus($('#autosave_dialog'));
-            $('#autosave_dialog').jqmShow();
+            sakai.api.Util.Modal.open($('#autosave_dialog'));
             $('#autosave_keep').off('click').on('click', function() {
                 cancelRestoreAutoSave(pageData);
             });
@@ -1485,7 +1484,7 @@ require(['jquery', 'underscore', 'sakai/sakai.api.core', 'jquery-ui'], function(
          */
         var cancelRestoreAutoSave = function(pageData) {
             makeTempCopy(pageData);
-            $('#autosave_dialog').jqmHide();
+            sakai.api.Util.Modal.close('#autosave_dialog');
         };
 
         /**
@@ -1501,7 +1500,7 @@ require(['jquery', 'underscore', 'sakai/sakai.api.core', 'jquery-ui'], function(
             sakai.api.Widgets.widgetLoader.insertWidgets(currentPageShown.ref, false, storePath + '/', autoSaveData);
             setPageEditActions();
             updateColumnHandles();
-            $('#autosave_dialog').jqmHide();
+            sakai.api.Util.Modal.close('#autosave_dialog');
         };
 
         /**
