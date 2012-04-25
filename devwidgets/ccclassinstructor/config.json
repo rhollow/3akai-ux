@@ -1,0 +1,20 @@
+{
+    "id":                 "ccclassinstructor",
+    "name":               "Course Instructors",
+    "description":        "Show set of instructors for a given course offering.",
+    "type":               "contrib",
+    "enabled":            true,
+    "hasSettings":        false,
+    "url":                "/devwidgets/ccclassinstructor/ccclassinstructor.html",
+    "img":                "/devwidgets/ccclassinstructor/images/ccclassinstructor.png",
+    "i18n": {
+        "default": {
+            "bundle":        "/devwidgets/ccclassinstructor/bundles/default.properties",
+            "name":           "Class Instructors",
+            "description":    "Show set of instructors for a given course offering."
+        }
+    },
+    "personalportal":     false,
+    "sakaidocs":          true,
+    "showinsakaigoodies": false
+}

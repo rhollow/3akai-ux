@@ -1,0 +1,85 @@
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="/dev/css/myb/widget_extras.css" />
+
+<!-- CALCENTRAL CLASS PAGE WIDGETS ALL HAVE SAME PARENT CONTAINER -->
+
+<div class="s3d-widget-container" id="cc-classpage-sections">
+
+    <div class="s3d-contentpage-title">
+        Lecture &amp; Section Details
+    </div>
+
+    <div class="cc-classpage-widget-body" id="cc-classpage-sections-table" style="display:none;"><!--
+
+        <table id="cc-classpage-section-results">
+            <thead>
+                <tr>
+                    <th>Section</th>
+                    <th>CCN</th>
+                    <th>Time</th>
+                    <th>Location</th>
+                    <th>Instructor</th>
+                    <th>Final</th>
+                    <th>Units</th>
+                    <th>Enrolled</th>
+                    <th>Waitlist</th>
+                    <th>Note</th>
+                </tr>
+            </thead>
+            <tbody>
+                {for section in sections}
+                <tr>
+                    <td>
+                        ${section.section}
+                    </td>
+                    
+                    <td>
+                        ${section.ccn}
+                    </td>
+
+                    <td>
+                        ${section.time}
+                    </td>
+                    
+                    <td>
+                        ${section.location}
+                    </td>
+                        
+                    <td>
+                        <a href="http://example.com/">${section.instructor}</a>
+                    </td>
+                    
+                    <td>
+                        ${section.final}
+                    </td>
+                    
+                    <td>
+                        ${section.units}
+                    </td>
+                    
+                    <td>
+                        {if section.enrolled_cur && section.enrolled_max}
+                            ${section.enrolled_cur}/${section.enrolled_max}
+                        {/if}
+                    </td>
+                    
+                    <td>
+                        {if section.waitlist > 0}
+                            ${section.waitlist}
+                        {/if}
+                    </td>
+                    
+                    <td>
+                        <a href="http://example.com/" alt="${section.note}">Note</a>
+                    </td>
+                </tr>
+                {/for}
+            </tbody>
+    --></table>
+
+    </div>
+
+</div>
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="/devwidgets/ccclasssections/javascript/ccclasssections.js"></script>

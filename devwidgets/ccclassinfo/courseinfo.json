@@ -1,0 +1,116 @@
+{
+  "courseid" : "83438432",
+  "courseinfo" : {
+    "ccn" : 31021,
+    "format" : "3 hours of lecture per week",
+    "grading" : "Must be taken on a satisfactory / unsatisfactory basis",
+    "prereqs" : "1 or equivalent",
+    "requirements" : "American Cultures",
+    "semesters" : "Spring",
+    "year" : 2012,
+    "units" : 5
+  },
+  "description" : "With over two million people incarcerated in the United States, and one in three black men on probation, parole or in prison, the United States criminal justice system has become a site of significant contestation. ES21AC provides students with the tools and historical background needed to engage in meaningful and informed debates about race, gender, legal status, crime and punishment. Central to this learning and analysis is the question, how might we forge and abolition pedagody and how has/can such pedagogy be formed in antiracist and feminist scholarship, grounded in domestic and transnational grassroots social movements?",
+  "instructors" : [
+    {
+      "instr_email" : "iebovafba@orexryrl.rqh",
+      "instr_id" : 892685,
+      "instr_name" : "Victoria Robinsonon",
+      "instr_office" : "231 Dwinelle Hall",
+      "instr_phone" : "510-555-1234",
+      "instr_img" : "/devwidgets/ccclassinstructor/images/vrobinson.png",
+      "instr_title" : "Professor",
+      "instr_url" : "http://victoriarobbi.berkeley.edu"
+    },
+    {
+      "instr_email" : "wnar@fzvgu.pbz",
+      "instr_id" : 191779,
+      "instr_name" : false,
+      "instr_office" : "17 Dwinelle Hall",
+      "instr_phone" : "510-555-1235",
+      "instr_img" : "/devwidgets/ccclassinstructor/images/jsmith.jpg",
+      "instr_title" : "Visiting Lecturer",
+      "instr_url" : "http://jane.berkeley.edu"
+    },
+    {
+      "instr_email" : "zvxr@jngg.pbz",
+      "instr_id" : false,
+      "instr_name" : "Mike Watt",
+      "instr_office" : "Palookaville",
+      "instr_phone" : "510-555-1237",
+      "instr_img" : false,
+      "instr_title" : false,
+      "instr_url" : "http://www.hootpage.com/"
+    },
+    {
+      "instr_email" : false,
+      "instr_id" : 89435,
+      "instr_name" : false,
+      "instr_office" : false,
+      "instr_phone" : false,
+      "instr_img" : false,
+      "instr_title" : false,
+      "instr_url" : false
+    }
+  ],
+  "schedule" : {
+    "coords" : "37.86992,-122.25341",
+    "location" : "345 Dwinnelle Hall",
+    "time" : "9-10 am",
+    "weekdays" : "Mon, Wed and Fri"
+  },
+  "sections" : [
+    {
+      "ccn" : 31021,
+      "enrolled_cur" : 96,
+      "enrolled_max" : 120,
+      "final" : false,      
+      "instructor" : "Robinson, V.E.",
+      "location" : "160 KROEBER",
+      "note" : "This is a test of the emergency broadcast system.",
+      "section" : "Lecture 001",
+      "time" : "TR 9:30-11A",
+      "units" : 4,
+      "waitlist" : 11
+    },
+    {
+      "ccn" : false,
+      "enrolled_cur" : 3,
+      "enrolled_max" : 4,
+      "final" : 8,
+      "instructor" : false,
+      "location" : "104 BARROWS",
+      "note" : false,
+      "section" : "Discussion 101",
+      "time" : "W 10-11 A",
+      "units" : 3,
+      "waitlist" : 0
+    },
+    {
+      "ccn" : 62332,
+      "enrolled_cur" : false,
+      "enrolled_max" : false,      
+      "final" : 7,
+      "instructor" : "Lumbreras, J.",
+      "location" : "385 LECONTE",
+      "note" : "Bring your Twinkies",
+      "section" : false,
+      "time" : false,
+      "units" : 3,
+      "waitlist" : 0
+    },
+    {
+      "ccn" : 93324,
+      "enrolled_cur" : 15,
+      "enrolled_max" : 15,
+      "final" : 6,
+      "instructor" : "Cochran, E.",
+      "location" : false,
+      "note" : "Every man for himself.",
+      "section" : "Discussion 103",
+      "time" : "M 9-10 A",
+      "units" : false,
+      "waitlist" : false
+    }
+  ]
+}

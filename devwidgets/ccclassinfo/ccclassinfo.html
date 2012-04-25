@@ -1,0 +1,72 @@
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="/dev/css/myb/widget_extras.css" />
+
+<!-- CALCENTRAL CLASS PAGE WIDGETS ALL HAVE SAME PARENT CONTAINER -->
+
+<div class="s3d-widget-container" id="cc-classpage-ccclassinfo">
+
+    <div class="s3d-contentpage-title">
+        Course Info
+    </div>
+
+    <div class="cc-classpage-widget-body" id="cc-classpage-courseinfo-body" style="display:none;"><!--
+       <table>
+        <tbody>
+            <tr>
+                <td class="classpage-table-label">Format:</td>
+                <td>
+                    {if info.format}${info.format}{else}<em>Not available</em>{/if}
+                </td>
+            </tr>
+
+            <tr>
+                <td class="classpage-table-label">Units:</td>
+                <td>
+                    {if info.units}${info.units}{else}<em>Not available</em>{/if}
+                </td>
+
+            </tr>
+            
+            <tr>
+                <td class="classpage-table-label">CCN:</td>
+                <td>
+                    {if info.ccn}${info.ccn}{else}<em>Not available</em>{/if}
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="classpage-table-label">Semesters offered:</td>
+                <td>
+                    {if info.semesters}${info.semesters}{else}<em>Not available</em>{/if}
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="classpage-table-label">Prerequisites:</td>
+                <td>
+                    {if info.prereqs}${info.prereqs}{else}<em>Not available</em>{/if}
+                </td>
+            </tr>
+
+            <tr>
+                <td class="classpage-table-label">Requirements:</td>
+                <td>
+                    {if info.requirements}${info.requirements}{else}<em>Not available</em>{/if}
+                </td>
+            </tr>
+
+            <tr>
+                <td class="classpage-table-label">Grading:</td>
+                <td>
+                    {if info.grading}${info.grading}{else}<em>Not available</em>{/if}
+                </td>
+            </tr>
+            
+        </tbody>
+       </table>
+    --></div>
+
+</div>
+
+
+<script type="text/javascript" src="/devwidgets/ccclassinfo/javascript/ccclassinfo.js"></script>

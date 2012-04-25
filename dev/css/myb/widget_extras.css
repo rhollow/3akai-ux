@@ -1,0 +1,82 @@
+/* 
+    "Segment" widgets in Class Page docs
+*/
+
+.cc-classpage-widget-body {
+    margin:10px;
+}
+
+.classpage-table-label {
+    text-align:right;
+    padding-right:7px;
+    font-weight:bold;
+    color:#999;
+    font-size:0.9em;
+}
+
+img.cc-classpage-instructor-pic {
+    float:left;
+    margin-right:30px;
+    width:120px;
+    height:120px;    
+}
+
+
+.cclecturemap {
+    float:right;
+    margin-top:-15px;
+    margin-right:-10px;
+}
+
+
+.cclectureinfo {
+    position:relative;
+    float:left;
+}
+
+
+table#cc-classpage-section-results {
+    font-size:0.9em;
+}
+
+table#cc-classpage-section-results, 
+table#cc-classpage-section-results td, 
+table#cc-classpage-section-results th {
+    border: 1px solid #D5D5D5;
+    border-collapse: collapse;
+    padding: 3px 15px 3px 2px;
+}
+
+.cc-classpage-instructorinfo-body {
+    border-bottom: 1px dotted #c6c6c6;
+    clear: both;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+/* Don't put a gray divider after the last instructor */
+#cc-classpage-instructorinfo .cc-classpage-instructorinfo-body:last-child {
+    border-bottom:none;
+    margin-bottom:0px;
+}
+
+.cc-instr_name {
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.cc-instr-table th {
+    text-align:left;
+    min-width:100px;
+}
+
+.cc-classpage-message-icon {
+    margin-left:5px;
+    margin-bottom:-3px;
+}
+
+/* Need to add a property to this OAE class if we want to float things inside widget divs. */
+.s3d-widget-container {
+    overflow:hidden;
+}
+

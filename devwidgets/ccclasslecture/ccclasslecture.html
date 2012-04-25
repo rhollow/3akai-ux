@@ -1,0 +1,42 @@
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="/dev/css/myb/widget_extras.css" />
+
+<!-- CALCENTRAL CLASS PAGE WIDGETS ALL HAVE SAME PARENT CONTAINER -->
+
+<div class="s3d-widget-container" id="cc-classpage-ccclassinfo" style="display:none;">
+
+    <div class="s3d-contentpage-title">
+        Lecture Info
+    </div>
+
+    <div class="cc-classpage-widget-body" id="cc-classpage-lecture-body"><!--
+
+        <div class="cclectureinfo">
+            <p>
+                <span class="classpage-table-label">Days & Time</span><br />
+                ${info.weekdays}<br />
+                ${info.time}
+            </p>
+    
+            <p>
+                <span class="classpage-table-label">Location:</span><br />
+                ${info.location}
+            </p>
+            
+        </div>
+ 
+        <div>
+            {if info.coords}
+                <a href="http://maps.google.com/maps?daddr=${info.coords}&l=en&dirflg=w&t=m&z=17" target="_blank"><img src="http://maps.googleapis.com/maps/api/staticmap?center=${info.coords}&zoom=16&size=200x200&maptype=roadmap&markers=color:blue%7C${info.coords}&sensor=false" class="cclecturemap" /></a>
+            {else}
+                <img src="/devwidgets/ccclasslecture/images/classpage_map_not_available.png" class="cclecturemap" />
+            {/if}
+
+        </div>
+    --></div>
+
+</div>
+
+
+<script type="text/javascript" src="/devwidgets/ccclasslecture/javascript/ccclasslecture.js"></script>
+
