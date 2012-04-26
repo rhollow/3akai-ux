@@ -64,12 +64,6 @@ require(["jquery", "sakai/sakai.api.core", "underscore"], function($, sakai, _) 
                 numinstrs: _.size(data.instructors)
             });
             $instrDisplayContainer.html( sakai.api.i18n.General.process( instructorHTML ) );
-
-            $.each(data.instructors, function(index) {
-                console.log(data[index].instr_id);
-            });
-
-            // picture = sakai.api.User.getProfilePicture(result);
         };
 
         var showMainView = function() {

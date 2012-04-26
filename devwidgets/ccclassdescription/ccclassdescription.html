@@ -9,7 +9,11 @@
     </div>
 
     <div class="cc-classpage-widget-body" id="cc-classpage-description-body" >
-        ${description}
+        {if description}
+            ${description}
+        {else}
+            <em>Not available</em>
+        {/if}
     --></div>
     </div>
 

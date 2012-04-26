@@ -14,13 +14,21 @@
         <div class="cclectureinfo">
             <p>
                 <span class="classpage-table-label">Days & Time</span><br />
-                ${info.weekdays}<br />
-                ${info.time}
+                {if info.weekdays && info.time}
+                    ${info.weekdays}<br />
+                    ${info.time}
+                {else}
+                    <em>Not available</em>
+                {/if}
             </p>
     
             <p>
                 <span class="classpage-table-label">Location:</span><br />
-                ${info.location}
+                {if info.location}
+                    ${info.location}
+                {else}
+                    <em>Not available</em>
+                {/if}
             </p>
             
         </div>
