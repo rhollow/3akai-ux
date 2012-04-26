@@ -13,12 +13,7 @@
 
     <div class="cc-classpage-instructorinfo-body cc-classpage-widget-body">
         {if instructor.instr_id}<a href="/~${instructor.instr_id}">{/if}
-            <img src="
-            {if instructor.instr_img}
-                ${instructor.instr_img}
-            {else}
-                dev/images/default_User_icon_100x100.png
-            {/if}" 
+            <img src="{if instructor.instr_img}${instructor.instr_img}{else}/dev/images/default_User_icon_100x100.png{/if}" 
 
             alt="Intructor photo for ${instructor.instr_name}" class="cc-classpage-instructor-pic">
         {if instructor.instr_id}</a>{/if}

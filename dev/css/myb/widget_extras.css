@@ -65,6 +65,10 @@ table#cc-classpage-section-results th {
     padding-top: 10px;
 }
 
+.cc-instr-table {
+    height:110px;
+}
+
 .cc-instr-table th {
     text-align:left;
     min-width:100px;
