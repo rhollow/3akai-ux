@@ -6,51 +6,51 @@
     "grading" : "Must be taken on a satisfactory / unsatisfactory basis",
     "prereqs" : "1 or equivalent",
     "requirements" : "American Cultures",
-    "semesters" : "Spring",
+    "semesters_offered" : "Spring",
     "year" : 2012,
     "units" : 5
   },
   "description" : "With over two million people incarcerated in the United States, and one in three black men on probation, parole or in prison, the United States criminal justice system has become a site of significant contestation. ES21AC provides students with the tools and historical background needed to engage in meaningful and informed debates about race, gender, legal status, crime and punishment. Central to this learning and analysis is the question, how might we forge and abolition pedagody and how has/can such pedagogy be formed in antiracist and feminist scholarship, grounded in domestic and transnational grassroots social movements?",
   "instructors" : [
     {
-      "instr_email" : "iebovafba@orexryrl.rqh",
-      "instr_id" : 892685,
-      "instr_name" : "Victoria Robinsonon",
-      "instr_office" : "231 Dwinelle Hall",
-      "instr_phone" : "510-555-1234",
-      "instr_img" : "/devwidgets/ccclassinstructor/images/vrobinson.png",
-      "instr_title" : "Professor",
-      "instr_url" : "http://victoriarobbi.berkeley.edu"
+      "email" : "iebovafba@orexryrl.rqh",
+      "id" : 892685,
+      "name" : "Victoria Robinsonon",
+      "office" : "231 Dwinelle Hall",
+      "phone" : "510-555-1234",
+      "img" : "/devwidgets/ccclassinstructor/images/vrobinson.png",
+      "title" : "Professor",
+      "url" : "http://victoriarobbi.berkeley.edu"
     },
     {
-      "instr_email" : "wnar@fzvgu.pbz",
-      "instr_id" : 191779,
-      "instr_name" : false,
-      "instr_office" : "17 Dwinelle Hall",
-      "instr_phone" : "510-555-1235",
-      "instr_img" : "/devwidgets/ccclassinstructor/images/jsmith.jpg",
-      "instr_title" : "Visiting Lecturer",
-      "instr_url" : "http://jane.berkeley.edu"
+      "email" : "wnar@fzvgu.pbz",
+      "id" : 191779,
+      "name" : false,
+      "office" : "17 Dwinelle Hall",
+      "phone" : "510-555-1235",
+      "img" : "/devwidgets/ccclassinstructor/images/jsmith.jpg",
+      "title" : "Visiting Lecturer",
+      "url" : "http://jane.berkeley.edu"
     },
     {
-      "instr_email" : "zvxr@jngg.pbz",
-      "instr_id" : false,
-      "instr_name" : "Mike Watt",
-      "instr_office" : "Palookaville",
-      "instr_phone" : "510-555-1237",
-      "instr_img" : false,
-      "instr_title" : false,
-      "instr_url" : "http://www.hootpage.com/"
+      "email" : "zvxr@jngg.pbz",
+      "id" : false,
+      "name" : "Mike Watt",
+      "office" : "Palookaville",
+      "phone" : "510-555-1237",
+      "img" : false,
+      "title" : false,
+      "url" : "http://www.hootpage.com/"
     },
     {
-      "instr_email" : false,
-      "instr_id" : 89435,
-      "instr_name" : false,
-      "instr_office" : false,
-      "instr_phone" : false,
-      "instr_img" : false,
-      "instr_title" : false,
-      "instr_url" : false
+      "email" : false,
+      "id" : 89435,
+      "name" : false,
+      "office" : false,
+      "phone" : false,
+      "img" : false,
+      "title" : false,
+      "url" : false
     }
   ],
   "schedule" : {
