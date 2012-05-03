@@ -14,48 +14,42 @@
         <table id="cc-classpage-section-results">
             <thead>
                 <tr>
-                    <th>Section</th>
+                    <th>Class Meeting</th>
                     <th>CCN</th>
-                    <th>Time</th>
-                    <th>Location</th>
-                    <th>Instructor</th>
-                    <th>Final</th>
-                    <th>Units</th>
+                    <th>Instructor</th>                    
                     <th>Enrolled</th>
                     <th>Waitlist</th>
-                    <th>Note</th>
+                    <th>Time</th>
+                    <th>Location</th>
                 </tr>
             </thead>
             <tbody>
                 {for section in sections}
                 <tr>
                     <td>
-                        ${section.section}
+                        {if section.section}
+                            ${section.section}
+                        {/if}
                     </td>
                     
                     <td>
-                        ${section.ccn}
+                        {if section.ccn}
+                            ${section.ccn}
+                        {/if}
                     </td>
 
-                    <td>
-                        ${section.time}
-                    </td>
+                    <td class="classpage_sections_instrnames">
+                        {if section.instructors}
+                            {for i in section.instructors}
+                                {if i.id}
+                                    <a href="/~${i.id}">${i.name}</a>
+                                {else}
+                                    ${i.name}
+                                {/if}
+                            {/for}
+                        {/if}
+                    </td>                    
                     
-                    <td>
-                        ${section.location}
-                    </td>
-                        
-                    <td>
-                        <a href="http://example.com/">${section.instructor}</a>
-                    </td>
-                    
-                    <td>
-                        ${section.final}
-                    </td>
-                    
-                    <td>
-                        ${section.units}
-                    </td>
                     
                     <td>
                         {if section.enrolled_cur && section.enrolled_max}
@@ -68,10 +62,20 @@
                             ${section.waitlist}
                         {/if}
                     </td>
+
                     
                     <td>
-                        <a href="http://example.com/" alt="${section.note}">Note</a>
-                    </td>
+                        {if section.time }
+                            ${section.time}
+                        {/if}
+                    </td> 
+
+                    <td>
+                        {if section.location }
+                            ${section.location}
+                        {/if}
+                    </td> 
+
                 </tr>
                 {/for}
             </tbody>

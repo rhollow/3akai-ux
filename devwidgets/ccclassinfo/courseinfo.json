@@ -1,13 +1,15 @@
 {
   "courseid" : "83438432",
   "courseinfo" : {
-    "ccn" : 31021,
     "format" : "3 hours of lecture per week",
     "grading" : "Must be taken on a satisfactory / unsatisfactory basis",
     "prereqs" : "1 or equivalent",
     "requirements" : "American Cultures",
-    "semesters_offered" : "Spring",
+    "term" : "Spring",
+    "semesters_offered" : "Spring, Fall",
     "year" : 2012,
+    "department" : "Ethnic Studies",
+    "coursenum" : "21AC",
     "units" : 5
   },
   "description" : "With over two million people incarcerated in the United States, and one in three black men on probation, parole or in prison, the United States criminal justice system has become a site of significant contestation. ES21AC provides students with the tools and historical background needed to engage in meaningful and informed debates about race, gender, legal status, crime and punishment. Central to this learning and analysis is the question, how might we forge and abolition pedagody and how has/can such pedagogy be formed in antiracist and feminist scholarship, grounded in domestic and transnational grassroots social movements?",
@@ -56,7 +58,7 @@
   "schedule" : {
     "coords" : "37.86992,-122.25341",
     "location" : "345 Dwinnelle Hall",
-    "time" : "9-10 am",
+    "time" : "9-10 AM",
     "weekdays" : "Mon, Wed and Fri"
   },
   "sections" : [
@@ -64,53 +66,82 @@
       "ccn" : 31021,
       "enrolled_cur" : 96,
       "enrolled_max" : 120,
-      "final" : false,      
-      "instructor" : "Robinson, V.E.",
-      "location" : "160 KROEBER",
+      "location" : "160 Kroeber",
       "note" : "This is a test of the emergency broadcast system.",
       "section" : "Lecture 001",
-      "time" : "TR 9:30-11A",
-      "units" : 4,
-      "waitlist" : 11
+      "time" : "TR 9:30-11 AM",
+      "waitlist" : 11,
+      "midterm_datetime" : "Monday, June 3 from 1:00 - 3:00",      
+      "midterm_location" : "12 Doe",
+      "midterm_note" : "Please bring a No. 6 pencil and leave your books at home.",
+      "final_datetime" : "Thursday, May 10 from 3:00 - 5:00",      
+      "final_location" : "160 Krober",
+      "final_note" : "Please bring a No. 2 pencil and leave your books at home.",
+      "restrictions" : "<p>Restricted to graduate students</p><p>Seats have been reserved for:</p><ul><li>Instructor approval: A class entry code is required to enroll in these seats. <strong>(Open)</strong></li><li>Students with a major or Molecular and Cell Biology or Neuroscience or Biophysics <strong>(Open)</strong></li><li>Open seating <strong>(Open)</strong></li></ul>",
+      "instructors" : [
+        {"id" : 323432, "name" : "Robinson, V."}
+      ]
     },
     {
       "ccn" : false,
       "enrolled_cur" : 3,
       "enrolled_max" : 4,
-      "final" : 8,
-      "instructor" : false,
-      "location" : "104 BARROWS",
+      "location" : "104 Barrows",
       "note" : false,
       "section" : "Discussion 101",
-      "time" : "W 10-11 A",
-      "units" : 3,
-      "waitlist" : 0
+      "time" : "W 11 AM - 11 PM",
+      "waitlist" : 0,
+      "midterm_datetime" : "Friday, October 19 from 1:00 - 3:00",      
+      "midterm_location" : "12 Doe",
+      "midterm_note" : "Please bring a No. 7 pencil and leave your books at home.",
+      "final_datetime" : "Wednesday, April 13 from 2:00 - 3:00",      
+      "final_location" : "117 Dwinnelle",
+      "final_note" : "Please bring a No. 3 pencil and leave your books at home.",
+      "restrictions" : "<p>Restricted to graduate students</p><p>Seats have been reserved for:</p><ul><li>Instructor approval: A class entry code is required to enroll in these seats. <strong>(Open)</strong></li><li>Students with a major or Molecular and Cell Biology or Neuroscience or Biophysics <strong>(Open)</strong></li><li>Open seating <strong>(Open)</strong></li></ul>",
+      "instructors" : false
     },
     {
       "ccn" : 62332,
       "enrolled_cur" : false,
       "enrolled_max" : false,      
-      "final" : 7,
-      "instructor" : "Lumbreras, J.",
-      "location" : "385 LECONTE",
-      "note" : "Bring your Twinkies",
+      "location" : "385 LeConte",
+      "note" : "Bring your pencils - you're going to need them.",
       "section" : false,
       "time" : false,
-      "units" : 3,
-      "waitlist" : 0
+      "waitlist" : 0,
+      "midterm_datetime" : "Monday, September 12 from 3:00 - 4:30",      
+      "midterm_location" : "43 Building B",
+      "midterm_note" : "Please bring a No. 8 pencil and leave your books at home.",
+      "final_datetime" : false,
+      "final_location" : false,
+      "final_note" : "Please bring a No. 4 pencil and leave your books at home.",
+      "restrictions" : false,
+      "instructors" : [
+        {"id" : 394, "name" : "Lumbreras, J."},
+        {"id" : false, "name" : "Jonas, Q."},
+        {"id" : 93845, "name" : "Lancaster, B."},
+        {"id" : 834, "name" : "Hacker, S."}
+      ]      
     },
     {
       "ccn" : 93324,
       "enrolled_cur" : 15,
       "enrolled_max" : 15,
       "final" : 6,
-      "instructor" : "Cochran, E.",
-      "location" : false,
       "note" : "Every man for himself.",
       "section" : "Discussion 103",
-      "time" : "M 9-10 A",
-      "units" : false,
-      "waitlist" : false
+      "time" : "M 9-10 AM",
+      "waitlist" : false,
+      "midterm_datetime" : false,
+      "midterm_location" : false,
+      "midterm_note" : false,
+      "final_datetime" : "Monday, March 23 from 2:00 - 3:00",      
+      "final_location" : "121 North Gate",
+      "final_note" : false,
+      "restrictions" : "<p>Restricted to graduate students</p><p>Seats have been reserved for:</p><ul><li>Instructor approval: A class entry code is required to enroll in these seats. <strong>(Open)</strong></li><li>Students with a major or Molecular and Cell Biology or Neuroscience or Biophysics <strong>(Open)</strong></li><li>Open seating <strong>(Open)</strong></li></ul>",
+      "instructors" : [
+        {"id" : 323432, "name" : "Cochran, E."}
+      ]      
     }
   ]
 }

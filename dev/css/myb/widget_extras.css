@@ -47,6 +47,16 @@ table#cc-classpage-section-results th {
     padding: 3px 15px 3px 2px;
 }
 
+td.classpage_sections_instrnames {
+    white-space: nowrap;
+    width: 230px;
+    max-width:230px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+}
+
 .cc-classpage-instructorinfo-body {
     border-bottom: 1px dotted #c6c6c6;
     clear: both;

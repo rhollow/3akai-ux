@@ -39,12 +39,20 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
         /////////////////////////////
         var $rootel = $("#" + tuid);  // unique container for each widget instance
         var $mainContainer = $("#cc-classpage-sections-table", $rootel);
-        var $sectionsDisplayContainer = $("#cc-classpage-sections-table", $rootel);        
-        
+        var $sectionsDisplayContainer = $("#cc-classpage-sections-table", $rootel);
+
         
         ///////////////////////
         // Utility functions //
         ///////////////////////
+
+        // var truncateChars = function(){
+        //     $('.classpage_sections_instrnames').each(function(i, obj) {
+        //         // currCell = $(this);
+        //         // currCell.html(sakai.api.Util.applyThreeDots(currCell.html(), 70, {max_rows: 2,whole_word: true}));
+        //     });
+
+        // };
 
         /////////////////////////
         // Main View functions //
@@ -55,6 +63,8 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                 sections: data.sections
             });
             $sectionsDisplayContainer.html( sakai.api.i18n.General.process( sectionsHTML ) );
+            // truncateChars();
+
         };
 
         var showMainView = function() {
@@ -96,6 +106,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
         var doInit = function () {
             getSections();
             showMainView();
+
         };
 
         doInit();
