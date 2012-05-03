@@ -12,6 +12,9 @@
     font-weight:bold;
     color:#999;
     font-size:0.9em;
+    white-space:nowrap;
+    vertical-align: top;
+    padding-bottom:3px;
 }
 
 img.cc-classpage-instructor-pic {
@@ -71,13 +74,13 @@ td.classpage_sections_instrnames {
 }
 
 .cc-instr_name {
-    margin-bottom: 10px;
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 .cc-instr-table {
     height:110px;
 }
+
 
 .cc-instr-table th {
     text-align:left;

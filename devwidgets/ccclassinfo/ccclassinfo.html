@@ -34,13 +34,6 @@
                     {if info.semesters_offered}${info.semesters_offered}{else}<em>Not available</em>{/if}
                 </td>
             </tr>
-            
-            <tr>
-                <td class="classpage-table-label">Prerequisites:</td>
-                <td>
-                    {if info.prereqs}${info.prereqs}{else}<em>Not available</em>{/if}
-                </td>
-            </tr>
 
             <tr>
                 <td class="classpage-table-label">Requirements:</td>
@@ -49,10 +42,18 @@
                 </td>
             </tr>
 
+
             <tr>
                 <td class="classpage-table-label">Grading:</td>
                 <td>
                     {if info.grading}${info.grading}{else}<em>Not available</em>{/if}
+                </td>
+            </tr>
+
+            <tr>
+                <td class="classpage-table-label">Prerequisites:</td>
+                <td>
+                    {if info.prereqs}${info.prereqs}{else}<em>Not available</em>{/if}
                 </td>
             </tr>
             
