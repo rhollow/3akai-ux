@@ -14,21 +14,23 @@
         <table id="cc-classpage-section-results">
             <thead>
                 <tr>
-                    <th>Class Meeting</th>
+                    <th class="classpages_sections_col1">Class Meeting</th>
                     <th>CCN</th>
                     <th>Instructor</th>                    
                     <th>Enrolled</th>
                     <th>Waitlist</th>
-                    <th>Time</th>
-                    <th>Location</th>
+                    <th class="classpages_sections_timecol">Time</th>
+                    <th class="classpages_sections_loccol">Location</th>
                 </tr>
             </thead>
             <tbody>
                 {for section in sections}
-                <tr>
+                <tr class="classrow">
                     <td>
                         {if section.section}
-                            ${section.section}
+                            <strong>${section.section}</strong>
+                        {else}
+                            <em>Not available</em>
                         {/if}
                     </td>
                     
@@ -64,19 +66,81 @@
                     </td>
 
                     
-                    <td>
+                    <td class="classpages_sections_timecol">
                         {if section.time }
                             ${section.time}
                         {/if}
                     </td> 
 
-                    <td>
+                    <td class="classpages_sections_timecol">
                         {if section.location }
                             ${section.location}
                         {/if}
                     </td> 
 
                 </tr>
+
+                               <tr>
+                    <td colspan="5">
+                        <table class="classpages_sections_table_inner">
+                            {if section.note}
+                            <tr>
+                                <td class="classpages_sections_col1 classpage-table-label">
+                                    Note:
+                                </td>
+
+                                <td>
+                                    ${section.note}
+                                </td>
+                            </tr>
+                            {/if}
+
+                            <tr>
+                                <td class="classpages_sections_col1 classpage-table-label">
+                                    Final exam:
+                                </td>
+
+                                <td>
+                                    {if section.final_datetime}${section.final_datetime}{else}<em>Not available</em>{/if}
+                                </td>
+                            </tr>
+                            
+                            {if section.midterm_datetime}
+                            <tr>
+                                <td class="classpages_sections_col1 classpage-table-label">
+                                    Mid-term:
+                                </td>
+
+                                <td>
+                                    ${section.midterm_datetime}
+                                </td>
+                            </tr>
+                            {/if}
+
+                            {if section.restrictions}
+                            <tr>
+                                <td class="classpages_sections_col1 classpage-table-label">
+                                    Restrictions:
+                                </td>
+
+                                <td>
+                                    ${section.restrictions}
+                                </td>
+                            </tr>
+                            {/if}
+
+                        </table>    
+                    </td>
+
+                    <td colspan="2">
+                        {if section.coords}
+                            <a href="http://maps.google.com/maps?daddr=${section.coords}&l=en&dirflg=w&t=m&z=17" target="_blank"><img src="http://maps.googleapis.com/maps/api/staticmap?center=${section.coords}&zoom=16&size=200x200&maptype=roadmap&markers=color:blue%7C${section.coords}&sensor=false" /></a>
+                        {else}
+                            <img src="/devwidgets/ccclasssections/images/classpage_map_not_available.png" />
+                        {/if}
+                    </td>
+                </tr>
+ 
                 {/for}
             </tbody>
     --></table>

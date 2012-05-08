@@ -1,5 +1,23 @@
+/**
+ * Licensed to the Sakai Foundation (SF) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The SF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+
 /* 
-    "Segment" widgets in Class Page docs
+    Since class page widgets are generally all shown on the same page, one stylesheet to rule them all.
 */
 
 .cc-classpage-widget-body {
@@ -11,7 +29,6 @@
     padding-right:7px;
     font-weight:bold;
     color:#999;
-    font-size:0.9em;
     white-space:nowrap;
     vertical-align: top;
     padding-bottom:3px;
@@ -45,15 +62,25 @@ table#cc-classpage-section-results {
 table#cc-classpage-section-results, 
 table#cc-classpage-section-results td, 
 table#cc-classpage-section-results th {
-    border: 1px solid #D5D5D5;
     border-collapse: collapse;
-    padding: 3px 15px 3px 2px;
+    padding: 3px 5px 3px 2px;
+    
+    vertical-align:top;
+}
+
+table#cc-classpage-section-results th {
+    text-align:left;
+    padding-left:3px;
+    background-color:#e4e9ed;
+    color:#747577;
+    font-size:1.1em;
+
 }
 
 td.classpage_sections_instrnames {
     white-space: nowrap;
-    width: 230px;
-    max-width:230px;
+    width: 180px;
+    max-width:180px;
     overflow: hidden;
     text-overflow: ellipsis;
     -o-text-overflow: ellipsis;
@@ -92,8 +119,34 @@ td.classpage_sections_instrnames {
     margin-bottom:-3px;
 }
 
+table.classpages_sections_table_inner {
+    margin:0px 0px 0px -5px;
+    border-top: 1px dotted #D5D5D5;
+}
+
+table.classpages_sections_table_inner td {
+    border:none;
+}
+
+table tr.classrow td {
+    border-top: 1px dotted #D5D5D5;
+}
+
+td.classpages_sections_col1, th.classpages_sections_col1 {
+    width:110px;
+    min-width:110px;
+    vertical-align:top;
+}
+
+th.classpages_sections_timecol, td.classpages_sections_timecol, th.classpages_sections_loccol, td.classpages_sections_loccol {
+    width:100px;
+}
+
+
 /* Need to add a property to this OAE class if we want to float things inside widget divs. */
 .s3d-widget-container {
     overflow:hidden;
 }
+
+
 
